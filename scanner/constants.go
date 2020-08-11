@@ -1,5 +1,7 @@
 package scanner
 
+const UNKNOWN = "<unknown>"
+
 var TCP_PORTS = map[int]string{
 	0:     "Reserved",
 	1:     "Port Service Multiplexer",
