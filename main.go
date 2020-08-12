@@ -1,5 +1,9 @@
 package main
 
+import (
+	"github.com/mdcg/go-port-scanner/scanner"
+)
+
 func main() {
-	// cmd.Execute()
+	scanner.TCPScanner("localhost", 10000)
 }

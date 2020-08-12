@@ -1,5 +1,8 @@
 package scanner
 
+// TCP/UDP Default Ports List:
+// http://www.planetlinks.com/tec236/notes-terms/4-10-06/default-tcp-ports-list.html
+
 const UNKNOWN = "<unknown>"
 
 var TCP_PORTS = map[int]string{
@@ -2857,7 +2860,6 @@ var TCP_PORTS = map[int]string{
 	6699:  "Napster",
 	6700:  "Napster / Carracho (server)",
 	6701:  "KTI/ICAD Nameserver",
-	6701:  "Napster / Carracho (server)",
 	6711:  "SubSeven (Windows Trojan)",
 	6723:  "DDOS communication TCP",
 	6767:  "BMC PERFORM AGENT",
