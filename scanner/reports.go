@@ -12,7 +12,6 @@ func generateScanReport(scannerChan <-chan ScanReport) []ScanReport {
 
 func FormatScanReport(scans []ScanReport) {
 	if len(scans) > 0 {
-		fmt.Println("The following ports are open:")
 		for i := 0; i < len(scans); i++ {
 			scans[i].PrintReport()
 		}
