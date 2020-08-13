@@ -5,5 +5,6 @@ import (
 )
 
 func main() {
-	scanner.TCPScanner("localhost", 10000)
+	// scanner.FormatScanReport(scanner.TCPScanner("localhost", 10000))
+	scanner.FormatScanReport(scanner.TCPScanner("localhost", 10000))
 }

@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func checkTCPPort(addr string, port int, wg *sync.WaitGroup) {
+func checkTCPPort(addr string, port int, wg *sync.WaitGroup, scannerChan chan<- ScanReport) {
 	defer wg.Done()
 	if isTCPPortOpened(addr, port) {
 		serviceName := predictTCPPortService(port)
@@ -16,7 +16,7 @@ func checkTCPPort(addr string, port int, wg *sync.WaitGroup) {
 			Port:        port,
 			Protocol:    "TCP",
 		}
-		fmt.Println(scan)
+		scannerChan <- scan
 	}
 }
 
