@@ -11,9 +11,9 @@ type ScanReport struct {
 }
 
 func (sr *ScanReport) PrintReport() {
-	fmt.Printf("%v [%v] => %v\n",
-		sr.Port,
+	fmt.Printf("[%v] %v => %v\n",
 		sr.Protocol,
+		sr.Port,
 		sr.ServiceName,
 	)
 }
