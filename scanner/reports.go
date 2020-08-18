@@ -36,7 +36,7 @@ func FormatScanReport(scans []ScanReport) {
 // scans from UDP ports.
 func sortScanResults(scans []ScanReport) []ScanReport {
 	sort.Slice(scans, func(i, j int) bool {
-		return scans[i].Protocol < scans[j].Protocol
+		return scans[i].Port < scans[j].Port
 	})
 	return scans
 }
