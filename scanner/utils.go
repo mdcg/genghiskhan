@@ -5,6 +5,8 @@ import (
 	"net"
 	"sync"
 	"time"
+
+	"github.com/briandowns/spinner"
 )
 
 func checkTCPPort(addr string, port int, wg *sync.WaitGroup, scannerChan chan<- ScanReport) {
@@ -91,4 +93,15 @@ func predictUDPPortService(port int) string {
 func timeTrack(start time.Time, portsNumber int) {
 	elapsed := time.Since(start)
 	fmt.Printf("Scanning took %v to check %v port(s)\n", elapsed, portsNumber)
+}
+
+func startSpinner() *spinner.Spinner {
+	s := spinner.New(spinner.CharSets[21], 100*time.Millisecond)
+	s.Suffix = " Starting scan..."
+	s.Start()
+	return s
+}
+
+func stopSpinner(s *spinner.Spinner) {
+	s.Stop()
 }
