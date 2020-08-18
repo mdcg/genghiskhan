@@ -2,9 +2,11 @@ package scanner
 
 import (
 	"sync"
+	"time"
 )
 
 func TCPScanner(addr string, portsNumber int) []ScanReport {
+	defer timeTrack(time.Now(), portsNumber)
 	var wg sync.WaitGroup
 	scannerChan := make(chan ScanReport, portsNumber)
 	for port := 0; port < portsNumber; port++ {
@@ -17,6 +19,7 @@ func TCPScanner(addr string, portsNumber int) []ScanReport {
 }
 
 func UDPScanner(addr string, portsNumber int) []ScanReport {
+	defer timeTrack(time.Now(), portsNumber)
 	var wg sync.WaitGroup
 	scannerChan := make(chan ScanReport, portsNumber)
 	for port := 0; port < portsNumber; port++ {
@@ -29,5 +32,6 @@ func UDPScanner(addr string, portsNumber int) []ScanReport {
 }
 
 func FullScanner(addr string, portsNumber int) []ScanReport {
+	defer timeTrack(time.Now(), portsNumber)
 	return append(TCPScanner(addr, portsNumber), UDPScanner(addr, portsNumber)...)
 }

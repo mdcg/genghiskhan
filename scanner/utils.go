@@ -87,3 +87,8 @@ func predictUDPPortService(port int) string {
 	}
 	return UNKNOWN
 }
+
+func timeTrack(start time.Time, portsNumber int) {
+	elapsed := time.Since(start)
+	fmt.Printf("Scanning took %v to check %v port(s)\n", elapsed, portsNumber)
+}
