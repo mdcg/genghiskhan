@@ -7,6 +7,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// PrintGSBanner displays the Gengiskhan banner in the terminal.
 func PrintGSBanner() {
 	fmt.Println(
 		`
@@ -22,6 +23,7 @@ func PrintGSBanner() {
 	)
 }
 
+// Execute has the logic for generating the Gengiskhan CLI.
 func Execute() {
 	var host string
 	var port int
