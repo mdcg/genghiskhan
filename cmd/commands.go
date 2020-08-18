@@ -1,21 +1,38 @@
 package cmd
 
 import (
+	"fmt"
+
 	"github.com/mdcg/go-port-scanner/scanner"
 	"github.com/spf13/cobra"
 )
+
+func PrintGSBanner() {
+	fmt.Println(
+		`
+		 ▄████ ▓█████  ███▄    █   ▄████  ██▓  ██████  ██ ▄█▀ ██░ ██  ▄▄▄       ███▄    █ 
+		██▒ ▀█▒▓█   ▀  ██ ▀█   █  ██▒ ▀█▒▓██▒▒██    ▒  ██▄█▒ ▓██░ ██▒▒████▄     ██ ▀█   █ 
+		▒██░▄▄▄░▒███   ▓██  ▀█ ██▒▒██░▄▄▄░▒██▒░ ▓██▄   ▓███▄░ ▒██▀▀██░▒██  ▀█▄  ▓██  ▀█ ██▒
+		░▓█  ██▓▒▓█  ▄ ▓██▒  ▐▌██▒░▓█  ██▓░██░  ▒   ██▒▓██ █▄ ░▓█ ░██ ░██▄▄▄▄██ ▓██▒  ▐▌██▒
+		░▒▓███▀▒░▒████▒▒██░   ▓██░░▒▓███▀▒░██░▒██████▒▒▒██▒ █▄░▓█▒░██▓ ▓█   ▓██▒▒██░   ▓██░
+		░▒   ▒ ░░ ▒░ ░░ ▒░   ▒ ▒  ░▒   ▒ ░▓  ▒ ▒▓▒ ▒ ░▒ ▒▒ ▓▒ ▒ ░░▒░▒ ▒▒   ▓▒█░░ ▒░   ▒ ▒ 
+		 ░   ░  ░ ░  ░░ ░░   ░ ▒░  ░   ░  ▒ ░░ ░▒  ░ ░░ ░▒ ▒░ ▒ ░▒░ ░  ▒   ▒▒ ░░ ░░   ░ ▒░
+		░ ░   ░    ░      ░   ░ ░ ░ ░   ░  ▒ ░░  ░  ░  ░ ░░ ░  ░  ░░ ░  ░   ▒      ░   ░ ░ 
+			 ░    ░  ░         ░       ░  ░        ░  ░  ░    ░  ░  ░      ░  ░         ░ `,
+	)
+}
 
 func Execute() {
 	var host string
 	var port int
 
 	rootCmd := &cobra.Command{
-		Use: "scan",
+		Use: "gengiskhan",
 	}
 
 	rootCmd.PersistentFlags().StringVar(
 		&host, "host", "localhost",
-		"Host you want to scan",
+		"Host you want to scan.",
 	)
 	rootCmd.PersistentFlags().IntVar(
 		&port, "ports", 10000,
@@ -51,8 +68,8 @@ func Execute() {
 	}
 
 	cmdFullPortScanner := &cobra.Command{
-		Use:   "fullscan",
-		Short: "Starts scanning all ports, whether they are TCP or UDP.",
+		Use:   "fullScan",
+		Short: "Initiates scanning of all ports, whether they are TCP or UDP.",
 		Long: `
 			Initiates scanning all ports, whether TCP or UDP, on a given host.
 			Use the --host flags to indicate which host will be scanned,
